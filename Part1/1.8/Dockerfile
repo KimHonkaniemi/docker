@@ -1,6 +1,6 @@
 FROM  UBUNTU:20.04
 
-workdir /usr/src/app
+WORKDIR /usr/src/app
 
 # Shoul've changed the name probably but I was lazy and it doesnt matter. 
 COPY hello.sh
