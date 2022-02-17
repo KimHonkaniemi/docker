@@ -1,0 +1,24 @@
+FROM openjdk:8 
+
+
+
+WORKDIR /usr/src/myapp
+
+
+
+CMD ["java", "-jar", "./target/docker-example-1.1.3.jar"]
+
+
+
+COPY . .
+
+
+
+RUN ./mvnw package
+
+
+
+EXPOSE 8080
+
+# docker build . -t java-app
+# docker run -it -p 8080:8080 --name app-java java-app
