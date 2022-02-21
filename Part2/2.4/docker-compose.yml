@@ -1,0 +1,37 @@
+version: '3.8'
+
+
+
+services:
+
+      frontend:
+
+        image: frontend:latest
+
+        ports:
+
+          - 5000:5000
+
+
+
+      backend:
+
+        image: backend:latest
+
+        ports:
+
+          - 8080:8080
+
+        environment:
+
+          REDIS_HOST: redis
+
+
+
+      redis:
+
+        image: redis
+
+        container_name: redis
+
+## I did not use ports setting because of security if I understood it correctly. The default port was 6379 according to backend README.md
