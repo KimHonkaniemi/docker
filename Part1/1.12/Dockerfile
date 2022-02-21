@@ -9,6 +9,9 @@ WORKDIR /usr/src/frontend
 COPY . .
 
 
+ENV REACT_APP_BACKEND_URL=http://localhost:8080
+
+
 
 RUN apt-get update && apt-get install -y git curl
 
