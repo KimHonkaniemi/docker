@@ -1,9 +1,0 @@
-Since I have no imagination I decided to create a container with passwordgenerator in it. 
-It's a stupid idea becaues everyone can google "password gen" but at least it worked.
-
-Here are the steps:
-
-Created docker-compose.yml file
-
-After the dc file was created I executed "docker-compose up" and it started to work.
-And to confirm that the application works I tried to connect to localhost:8080, since that was the default port for the app.
