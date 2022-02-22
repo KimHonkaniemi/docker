@@ -1,0 +1,16 @@
+version: '3.8'
+
+
+
+services:
+
+  passwordgen:
+
+    image: camandel/web-password-generator
+
+    container_name: passgen
+
+    ports:
+
+      - 8080:8080
+
