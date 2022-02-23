@@ -1,6 +1,33 @@
 On my laptop (ubuntu 20.04 lts) all three containers start and after "trainer" had done it's job it will exit with code 0. I can see the "getting all cucumbers/mopeds" -text during the starting process.
 Backend and frontend remain powered on. Volumes seems to be working since both images will transfer. When connectin to localhost:3000 (frontend) via firefox the application starts
 and I try to select the cucumber or moped image they wont open. I can see the right file is selected but to opening is the problem. I am pretty sure it has something to do with tensorflow. I tried to change it to newer and older verison.
+It mentions something about nvidia cuda thing but then says "you can ignore this if you dont have a nvidia gpu. Rest of the errors are with tensorflow...
 
 Trying to replicate this on my VirtualBox Debian 11 Bullseye it's even worse. The frontend will go up but both backend and trainer will exit immediately with exit code 132.
 Tried to change the tensorflow version but it doesn't help. 
+
+
+I copy&pasted this from the terminal (ubuntu laptop)
+
+training	| 2022-02-22 18:06:48.492735: W tensorflow/python/util/util.cc:348] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+training exited with code 0
+backend 	| 2022-02-22 18:06:54.688880: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+backend 	| 2022-02-22 18:06:54.688924: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+backend 	| 2022-02-22 18:06:54.688965: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (a6bfd0104887): /proc/driver/nvidia/version does not exist
+backend 	|  * Serving Flask app 'app' (lazy loading)
+backend 	|  * Environment: production
+backend 	|	WARNING: This is a development server. Do not use it in a production deployment.
+backend 	|	Use a production WSGI server instead.
+backend 	|  * Debug mode: on
+backend 	|  * Running on all addresses.
+backend 	|	WARNING: This is a development server. Do not use it in a production deployment.
+backend 	|  * Running on http://172.19.0.4:5000/ (Press CTRL+C to quit)
+backend 	|  * Restarting with stat
+backend 	| 2022-02-22 18:06:56.719084: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+backend 	| 2022-02-22 18:06:56.719124: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+backend 	| 2022-02-22 18:06:59.082552: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+backend 	| 2022-02-22 18:06:59.082592: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+backend 	| 2022-02-22 18:06:59.082626: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (a6bfd0104887): /proc/driver/nvidia/version does not exist
+backend 	|  * Debugger is active!
+backend 	|  * Debugger PIN: 911-021-522
+backend 	| 172.19.0.1 - - [22/Feb/2022 18:08:12] "POST /kurkkuvaimopo HTTP/1.1" 500 -
