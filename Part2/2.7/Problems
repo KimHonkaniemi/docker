@@ -1,0 +1,6 @@
+On my laptop (ubuntu 20.04 lts) all three containers start and after "trainer" had done it's job it will exit with code 0. I can see the "getting all cucumbers/mopeds" -text during the starting process.
+Backend and frontend remain powered on. Volumes seems to be working since both images will transfer. When connectin to localhost:3000 (frontend) via firefox the application starts
+and I try to select the cucumber or moped image they wont open. I can see the right file is selected but to opening is the problem. I am pretty sure it has something to do with tensorflow. I tried to change it to newer and older verison.
+
+Trying to replicate this on my VirtualBox Debian 11 Bullseye it's even worse. The frontend will go up but both backend and trainer will exit immediately with exit code 132.
+Tried to change the tensorflow version but it doesn't help. 
