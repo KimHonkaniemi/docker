@@ -1,0 +1,23 @@
+FROM golang:alpine
+
+WORKDIR /usr/src/backend
+
+EXPOSE 8080
+
+COPY . .
+
+ENV REQUEST_ORIGIN=http://localhost:5000
+
+RUN apk update && apk --no-cache add curl bash && \
+    apk --no-cache add git && \ 
+    curl https://deb.nodesource.com/setup_16.x && \
+    git clone https://github.com/docker-hy/material-applications.git && \
+    apk add nodejs && \
+    go build \
+    adduser -D user2 && \
+    chown user2 -
+
+USER user2
+
+CMD ["./server"]
+
