@@ -7,3 +7,6 @@ RUN ./mvnw package
 EXPOSE 8080
 # docker build . -t java-app
 # docker run -it -p 8080:8080 --name app-java java-app
+
+
+Image size=611MB
