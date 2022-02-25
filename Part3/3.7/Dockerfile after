@@ -10,3 +10,5 @@ COPY --from=build /usr/src/myapp/target/docker-example-1.1.3.jar /usr/src/myapp/
 RUN adduser -D monkey && chown monkey /usr/src/myapp
 USER monkey
 CMD ["java", "-jar", "./target/docker-example-1.1.3.jar"]
+
+Image size=351MB
